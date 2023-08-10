@@ -1,43 +1,29 @@
-# Nyla Challenge Editor
+# Editor Form Site
 
-## Introduction
+Schema:
 
-Thanks for your interest! We expect this exercise to take up to 4 hours of your time (there's no timer, you can do it at your own pace, taking as long as you want). Feel free to ask us any questions if something isn't clear.
+- New placeholder atribute for each input
+- conditions array
 
-For domain reference:
+Form:
 
-- A Visitor is an end-user visiting/shopping on a Nyla Site
-- A Merchant is a company that uses the Nyla Editor to create their own ecommerce site with no-code.
+1.shouldShowField()
 
-### 1. Make the Form submit and the Site read that data
+- This function receives a fieldName (name,description, etc)
+- check in the properties if this field has a condition (for example truncateDescription field has one) (if not, just show the field)
+- check if the description inside the condition exists (in this case "description" exists) (if not, just show the field)
+- then, in this case we only have lenght, but we could have many conditions for the same field (in the length case, we check if the length is > than 100) (boolean)
+- by default we show the field
 
-The Editor (Form) currently does not submit the data anywhere, and the Site is rendering mock data at the moment.
+2.  Create validation for each field
+3.  Create custom <SubmitButton /> component
 
-You must make the Editor Form store the results (see `lib/db.ts`) and the Site page render the stored data.
+DB:
 
-- On the Editor side, consider best practices working with forms, as well as error handling.
+- Form submition hits a nextjs api (post), and saves the data into the redis db.
 
-- On the Site, consider that performance of the site is extremely important for us, and we don't want to have an outage if the Redis provider is temporarily unavailable. However, Merchants expect their Site to update when ever they submit a change.
+Site page:
 
-### 2. Add placeholders and conditional functionality to the form
-
-#### A. Placeholders
-
-Extend the current schema to allow each property to define an optional placeholder to render in the form when the inputs are empty – instead of the current generic "Enter your {fieldName}" placeholder. Implement it on the form.
-
-#### B. Conditional properties
-
-Finally, extend the current schema to allow each property to define an optional condition by which it would start showing in the form. If the condition is true, the input would appear and its value would be submitted; if the condition is not true, the input would not be shown.
-
-Implement it with the following example: "Truncate Description" should only appear if the "Description" field has a current value of more than 100 characters. Consider how you define this condition in the schema, in a way that would allow us to really take advantage of this functionality beyond this one example.
-
-## Submit your result
-
-1. Fork this StackBlitz project.
-2. Rename it to something random (it must not include 'n-challenge-editor' in its name).
-3. Apply all your changes.
-4. Email us the link to it (the Editor URL: `https://stackblitz.com/edit/<your-project-name>`), including a description of how you implemented the changes (as if you were explaining to a peer so they have better context when code reviewing).
-
-If you have any difficulties with the tool, please do reach out – you are free to work locally / any way you see more convenient.
-
-Thanks for your time and good luck!
+1. Create a cacheLocal to get data if redis isnt available (if we had some data before)
+2. Create a function to fetchData from redis storage
+3. Revalidate this data every 5 minutes
