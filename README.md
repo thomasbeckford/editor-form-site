@@ -1,6 +1,8 @@
 # Editor Form Site
+
+![Screenshot 2023-08-11 at 10 50 02 AM](https://github.com/thomasbeckford/editor-form-site/assets/28713861/8046e267-29fd-4b5a-94b4-80521eee6d70)
+
 ![Screenshot 2023-08-11 at 10 51 07 AM](https://github.com/thomasbeckford/editor-form-site/assets/28713861/7974dcb6-3e05-44ac-b65f-f2a70226679f)
-![Uploading Screenshot 2023-08-11 at 10.50.02 AM.png…]()
 
 
 Schema:
