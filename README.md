@@ -1,12 +1,13 @@
 # Editor Form Site
+![Screenshot 2023-08-11 at 10 51 07 AM](https://github.com/thomasbeckford/editor-form-site/assets/28713861/7974dcb6-3e05-44ac-b65f-f2a70226679f)
+![Uploading Screenshot 2023-08-11 at 10.50.02 AM.png…]()
+
 
 Schema:
-
 - New placeholder atribute for each input
 - conditions array
 
 Form:
-
 1.shouldShowField()
 
 - This function receives a fieldName (name,description, etc)
@@ -19,7 +20,6 @@ Form:
 3.  Create custom <SubmitButton /> component
 
 DB:
-
 - Form submition hits a nextjs api (post), and saves the data into the redis db.
 
 Site page:
